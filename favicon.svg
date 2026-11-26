@@ -1,0 +1,15 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <rect width="32" height="32" rx="6" fill="#0d0d0f"/>
+  <!-- Same 3×3 cube mark as the nav. -->
+  <g fill="none">
+    <rect x="4" y="4" width="7" height="7" fill="#ffffff"/>
+    <rect x="12.5" y="4" width="7" height="7" fill="#ffd500"/>
+    <rect x="21" y="4" width="7" height="7" fill="#c41e3a"/>
+    <rect x="4" y="12.5" width="7" height="7" fill="#ff5800"/>
+    <rect x="12.5" y="12.5" width="7" height="7" fill="#0051ba"/>
+    <rect x="21" y="12.5" width="7" height="7" fill="#ffffff"/>
+    <rect x="4" y="21" width="7" height="7" fill="#009e60"/>
+    <rect x="12.5" y="21" width="7" height="7" fill="#c41e3a"/>
+    <rect x="21" y="21" width="7" height="7" fill="#0051ba"/>
+  </g>
+</svg>

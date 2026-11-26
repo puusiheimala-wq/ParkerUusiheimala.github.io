@@ -4,30 +4,113 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Rubik's Cube Portraits by Parker</title>
+  <meta name="description" content="Custom portraits of people, pets, and logos, hand-built from real Rubik's Cubes in NYC.">
   <style>
-    body { margin: 0; font-family: Arial, sans-serif; background: #111; color: #fff; text-align: center; }
+    /* ---------- Basics ---------- */
+    html { scroll-behavior: smooth; }  /* smooth scrolling when you click a nav link */
+    body { margin: 0; font-family: Arial, sans-serif; background: #111; color: #fff; text-align: center; line-height: 1.5; }
     section { padding: 60px 20px; max-width: 900px; margin: 0 auto; }
     h1 { font-size: 42px; margin-bottom: 10px; }
     h2 { font-size: 30px; }
+    a { color: #ffd500; }
+
+    /* ---------- Top menu ---------- */
+    nav { position: sticky; top: 0; background: #000; padding: 12px; z-index: 10;
+          display: flex; flex-wrap: wrap; gap: 8px 20px; justify-content: center; }
+    nav a { color: #fff; text-decoration: none; font-weight: bold; }
+    nav a:hover { color: #ffd500; }
+
+    /* ---------- Gray boxes where photos will go, plus real photos ---------- */
     .photo { background: #333; color: #888; height: 300px; border-radius: 12px;
-             display: flex; align-items: center; justify-content: center; margin: 20px 0; }
+             display: flex; align-items: center; justify-content: center; margin: 20px 0; padding: 10px; }
+    /* Hero uses portrait-1 (1000×1160). height:auto and aspect-ratio keep it from stretching. */
+    .hero-photo { display: block; width: 100%; max-width: 480px; height: auto; margin: 20px auto;
+                  aspect-ratio: 1000 / 1160; object-fit: cover; border-radius: 12px; background: #333; }
+    .gallery { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; align-items: stretch; }
+    /* border-box so the gray box's padding doesn't spill past the screen on a phone */
+    .gallery .photo { box-sizing: border-box; flex: 1 1 220px; width: 100%; max-width: 300px; min-width: min(100%, 220px);
+                      height: auto; aspect-ratio: 3 / 4; margin: 0; }
+    /* object-fit: cover fills the frame; each photo's aspect-ratio matches the file so it is not squashed */
+    .gallery img { flex: 1 1 220px; width: 100%; max-width: 300px; min-width: min(100%, 220px);
+                   height: auto; object-fit: cover; border-radius: 12px; background: #333; }
+    .gallery img.portrait-1 { aspect-ratio: 1000 / 1160; }
+    .gallery img.portrait-2 { aspect-ratio: 1000 / 1439; }
+
+    /* ---------- Cards (how it works + prices) ---------- */
     .steps, .prices { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
     .card { background: #222; padding: 25px; border-radius: 12px; flex: 1; min-width: 200px; }
     .price { font-size: 32px; color: #ffd500; font-weight: bold; }
-    .button { display: inline-block; background: #ffd500; color: #111; padding: 16px 32px;
-              border-radius: 8px; font-weight: bold; text-decoration: none; font-size: 18px; }
+
+    /* ---------- Yellow button ---------- */
+    .button { display: inline-block; background: #ffd500; color: #111; padding: 16px 32px; border: none;
+              border-radius: 8px; font-weight: bold; text-decoration: none; font-size: 18px; cursor: pointer; }
+
+    /* ---------- Review ---------- */
+    blockquote { background: #222; border-left: 6px solid #ffd500; border-radius: 12px;
+                 margin: 0; padding: 25px; font-size: 20px; font-style: italic; }
+
+    /* ---------- FAQ ---------- */
+    details { background: #222; border-radius: 12px; padding: 18px 22px; margin: 12px 0; text-align: left; }
+    summary { font-weight: bold; cursor: pointer; font-size: 18px; }
+    details p { margin-bottom: 0; color: #ccc; }
+
+    /* ---------- Order form ---------- */
+    form { max-width: 500px; margin: 0 auto; text-align: left; }
+    label { display: block; margin: 16px 0 6px; font-weight: bold; }
+    input, select, textarea { width: 100%; box-sizing: border-box; padding: 12px; border-radius: 8px;
+                              border: 1px solid #444; background: #222; color: #fff; font-size: 16px; }
+    .small { color: #aaa; font-size: 14px; }
+
+    /* ---------- Footer ---------- */
+    footer { padding: 30px 20px; color: #888; font-size: 14px; border-top: 1px solid #222; }
+
+    /* ---------- Phones: make big text a bit smaller, and stack the photos ---------- */
+    @media (max-width: 600px) {
+      h1 { font-size: 32px; }
+      h2 { font-size: 26px; }
+      section { padding: 40px 16px; }
+      .hero-photo, .gallery img, .gallery .photo { max-width: 100%; }
+      .gallery { flex-direction: column; align-items: center; }
+    }
   </style>
 </head>
 <body>
 
+  <!-- TOP MENU: each link jumps to the section with the matching id -->
+  <nav>
+    <a href="#gallery">Gallery</a>
+    <a href="#how">How it works</a>
+    <a href="#prices">Prices</a>
+    <a href="#about">About</a>
+    <a href="#faq">FAQ</a>
+    <a href="#order">Order</a>
+  </nav>
+
+  <!-- HERO: the first thing people see -->
   <section>
     <h1>Your photo, rebuilt from real Rubik's Cubes</h1>
     <p>Custom portraits of people, pets, and logos, hand-built cube by cube.</p>
-    <div class="photo">Photo of your best portrait goes here</div>
+    <img class="hero-photo" src="images/portrait-1.webp" width="1000" height="1160" alt="Finished Rubik's Cube portrait of a smiling man on a white background">
     <a class="button" href="#order">Start my portrait</a>
   </section>
 
-  <section>
+  <!-- GALLERY
+       To add a real photo: put it in the "images" folder, then replace a gray box like
+       <div class="photo">...</div>
+       with
+       <img src="images/filename.jpg" alt="Describe the photo">
+  -->
+  <section id="gallery">
+    <h2>Gallery</h2>
+    <div class="gallery">
+      <img class="portrait-1" src="images/portrait-1.webp" width="1000" height="1160" alt="Rubik's Cube portrait of a smiling man, built from colored cubes">
+      <img class="portrait-2" src="images/portrait-2.webp" width="1000" height="1439" alt="Taller Rubik's Cube portrait of a person in a red and orange shirt">
+      <div class="photo">Your portrait could be here</div>
+    </div>
+  </section>
+
+  <!-- HOW IT WORKS -->
+  <section id="how">
     <h2>How it works</h2>
     <div class="steps">
       <div class="card"><h3>1. Send a photo</h3><p>Any clear photo works.</p></div>
@@ -36,7 +119,8 @@
     </div>
   </section>
 
-  <section>
+  <!-- PRICES -->
+  <section id="prices">
     <h2>Prices</h2>
     <div class="prices">
       <div class="card"><h3>Mini</h3><div class="price">$1,200</div></div>
@@ -46,11 +130,109 @@
     <p>50% deposit after you pick a mockup.</p>
   </section>
 
+  <!-- ABOUT: your story -->
+  <section id="about">
+    <h2>About me</h2>
+    <p>Hi, I'm Parker, a 15-year-old artist in New York City. I build every portrait by hand,
+       one Rubik's Cube at a time, from a photo you send me.</p>
+    <p>20% of my profits go to programs that help kids get into STEM
+       ([charity name coming soon]).</p>
+  </section>
+
+  <!-- REVIEW: replace the text below with a real quote from a customer -->
+  <section id="review">
+    <h2>What customers say</h2>
+    <blockquote>
+      "[Customer review goes here]"
+      <p class="small">[Customer name]</p>
+    </blockquote>
+  </section>
+
+  <!-- FAQ: click a question to open the answer -->
+  <section id="faq">
+    <h2>FAQ</h2>
+    <details>
+      <summary>How long does it take?</summary>
+      <p>About 4 weeks after you approve your mockup.</p>
+    </details>
+    <details>
+      <summary>What photo should I send?</summary>
+      <p>A clear, well-lit photo where the face (or logo) is easy to see. A phone photo is fine.</p>
+    </details>
+    <details>
+      <summary>Can I see it before it's built?</summary>
+      <p>Yes. You'll get up to 5 digital mockups to choose from before I start building.</p>
+    </details>
+    <details>
+      <summary>How does payment work?</summary>
+      <p>You pay a 50% deposit after you pick your mockup, and the rest when your portrait is finished.</p>
+    </details>
+    <details>
+      <summary>Do you ship?</summary>
+      <p>[Shipping details coming soon.] Local delivery in NYC may be possible. [Confirm delivery details.]</p>
+    </details>
+    <details>
+      <summary>What sizes are there?</summary>
+      <p>Mini, Signature (about 500 cubes), and Showpiece. [Exact sizes coming soon.]</p>
+    </details>
+    <details>
+      <summary>Do you make logos for businesses?</summary>
+      <p>Yes. Logo pieces start at $2,500.</p>
+    </details>
+  </section>
+
+  <!-- ORDER FORM
+       This uses FormSubmit (formsubmit.co) to email you each order, since GitHub Pages can't run a server.
+       The very first time someone submits, FormSubmit sends a confirmation email to rubikscubeart@gmail.com.
+       Click the link in that email once, and after that every order comes straight to your inbox.
+  -->
   <section id="order">
     <h2>Ready to start?</h2>
-    <p>Send me a photo and tell me when you need it.</p>
-    <a class="button" href="mailto:rubikscubeart@gmail.com">Email me</a>
+    <p>Tell me about your portrait and I'll email you back.</p>
+
+    <form action="https://formsubmit.co/rubikscubeart@gmail.com" method="POST">
+      <!-- Hidden settings for FormSubmit -->
+      <input type="hidden" name="_subject" value="New portrait request!">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="text" name="_honey" style="display:none">  <!-- blocks spam bots -->
+
+      <label for="name">Your name</label>
+      <input id="name" type="text" name="name" required>
+
+      <label for="email">Your email</label>
+      <input id="email" type="email" name="email" required>
+
+      <label for="subject">What should I make?</label>
+      <input id="subject" type="text" name="what_to_portray" placeholder="A person, a pet, a logo..." required>
+
+      <label for="size">Size</label>
+      <select id="size" name="size">
+        <option>Mini ($1,200)</option>
+        <option selected>Signature ($2,000)</option>
+        <option>Showpiece (from $3,200)</option>
+        <option>Business logo (from $2,500)</option>
+        <option>Not sure yet</option>
+      </select>
+
+      <label for="deadline">When do you need it?</label>
+      <input id="deadline" type="date" name="deadline">
+
+      <label for="notes">Anything else?</label>
+      <textarea id="notes" name="notes" rows="4"></textarea>
+
+      <p class="small">Photo: after you send this, I'll email you back. Just reply with your photo attached.</p>
+
+      <p style="text-align:center;"><button class="button" type="submit">Send my request</button></p>
+    </form>
+
+    <p>Or <a href="mailto:rubikscubeart@gmail.com">email me</a> at rubikscubeart@gmail.com</p>
   </section>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>&copy; 2026 Parker Uusiheimala. Rubik's Cube portraits made by hand in NYC.</p>
+    <p>[Instagram link coming soon]</p>
+  </footer>
 
 </body>
 </html>

@@ -1,12 +1,56 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rubik's Cube Portraits</title>
+  <title>Rubik's Cube Portraits by Parker</title>
+  <style>
+    body { margin: 0; font-family: Arial, sans-serif; background: #111; color: #fff; text-align: center; }
+    section { padding: 60px 20px; max-width: 900px; margin: 0 auto; }
+    h1 { font-size: 42px; margin-bottom: 10px; }
+    h2 { font-size: 30px; }
+    .photo { background: #333; color: #888; height: 300px; border-radius: 12px;
+             display: flex; align-items: center; justify-content: center; margin: 20px 0; }
+    .steps, .prices { display: flex; gap: 20px; flex-wrap: wrap; justify-content: center; }
+    .card { background: #222; padding: 25px; border-radius: 12px; flex: 1; min-width: 200px; }
+    .price { font-size: 32px; color: #ffd500; font-weight: bold; }
+    .button { display: inline-block; background: #ffd500; color: #111; padding: 16px 32px;
+              border-radius: 8px; font-weight: bold; text-decoration: none; font-size: 18px; }
+  </style>
 </head>
 <body>
-  <h1>Rubik's Cube Portraits</h1>
-  <p>Your photo, rebuilt from hundreds of real Rubik's Cubes.</p>
+
+  <section>
+    <h1>Your photo, rebuilt from real Rubik's Cubes</h1>
+    <p>Custom portraits of people, pets, and logos, hand-built cube by cube.</p>
+    <div class="photo">Photo of your best portrait goes here</div>
+    <a class="button" href="#order">Start my portrait</a>
+  </section>
+
+  <section>
+    <h2>How it works</h2>
+    <div class="steps">
+      <div class="card"><h3>1. Send a photo</h3><p>Any clear photo works.</p></div>
+      <div class="card"><h3>2. Approve a mockup</h3><p>See up to 5 digital previews first.</p></div>
+      <div class="card"><h3>3. Get your portrait</h3><p>Built by hand in about 4 weeks.</p></div>
+    </div>
+  </section>
+
+  <section>
+    <h2>Prices</h2>
+    <div class="prices">
+      <div class="card"><h3>Mini</h3><div class="price">$1,200</div></div>
+      <div class="card"><h3>Signature</h3><div class="price">$2,000</div><p>Most popular, about 500 cubes</p></div>
+      <div class="card"><h3>Showpiece</h3><div class="price">from $3,200</div></div>
+    </div>
+    <p>50% deposit after you pick a mockup.</p>
+  </section>
+
+  <section id="order">
+    <h2>Ready to start?</h2>
+    <p>Send me a photo and tell me when you need it.</p>
+    <a class="button" href="mailto:rubikscubeart@gmail.com">Email me</a>
+  </section>
+
 </body>
 </html>

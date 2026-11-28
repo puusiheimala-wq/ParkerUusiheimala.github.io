@@ -384,18 +384,14 @@ section { padding: var(--pad) 20px; scroll-margin-top: 80px; }
 }
 .price-card .detail { color: var(--muted); margin: 0 0 8px; min-height: 1.6em; }
 .price-card .button { margin-top: auto; }
-.price-card.is-featured { border: 2px solid var(--yellow); }
-.badge {
+/* A plain label for the large piece. Not a "best seller" badge. */
+.statement {
   align-self: center;
-  display: inline-block;
-  margin-bottom: 4px;
-  padding: 4px 10px;
-  border-radius: 999px;
-  background: var(--yellow);
-  color: #111;
-  font-size: 0.75rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.8rem;
+  font-weight: 500;
+  letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 .price-notes { max-width: 65ch; margin: 28px auto 0; color: var(--muted); text-align: center; }
@@ -585,19 +581,13 @@ textarea { min-height: 140px; resize: vertical; }
   .gallery-open img { transition: transform 220ms ease; }
   .gallery-open:hover { transform: translateY(-4px); }
   .gallery-open:hover img { transform: scale(1.03); }
-  .price-card.is-featured { transform: translateY(-8px); }
 }
 
 /* ---------- Phones and tablets ---------- */
-@media (min-width: 901px) {
-  /* Signature sits a little taller than the other two prices. */
-  .price-card.is-featured { padding-top: 40px; padding-bottom: 40px; }
-}
 @media (max-width: 900px) {
   .hero-grid, .about-grid, .price-grid, .footer-grid { grid-template-columns: 1fr; }
   .hero-frame { order: -1; }
   .trust-list { grid-template-columns: 1fr 1fr; }
-  .price-card.is-featured { transform: none; }
 }
 @media (max-width: 759px) {
   .menu-button { display: inline-block; }

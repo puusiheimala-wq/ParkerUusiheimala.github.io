@@ -37,7 +37,7 @@
     "email": "rubikscubeart5711@gmail.com",
     "image": "https://puusiheimala-wq.github.io/ParkerUusiheimala.github.io/images/portrait-1.webp",
     "address": { "@type": "PostalAddress", "addressLocality": "New York City" },
-    "priceRange": "$1,200–$3,200+"
+    "priceRange": "$800–$2,500"
   }
   </script>
 </head>
@@ -180,28 +180,31 @@
         <h2>Prices</h2>
         <div class="price-grid">
           <article class="price-card">
-            <h3>Mini</h3>
-            <p class="price">$1,200</p>
-            <a class="button" href="#order" data-size="Mini ($1,200)">Start with Mini</a>
-          </article>
-          <article class="price-card is-featured">
-            <p class="badge">Most popular</p>
-            <h3>Signature</h3>
-            <p class="price">$2,000</p>
-            <p class="detail">Most popular, about 500 cubes</p>
-            <a class="button" href="#order" data-size="Signature ($2,000)">Start with Signature</a>
+            <h3>Small</h3>
+            <p class="price">$800</p>
+            <p class="detail">300 cubes</p>
+            <a class="button" href="#order" data-size="Small (300 cubes, $800)">Start with Small</a>
           </article>
           <article class="price-card">
-            <h3>Showpiece</h3>
-            <p class="price">from $3,200</p>
-            <a class="button" href="#order" data-size="Showpiece (from $3,200)">Start with Showpiece</a>
+            <h3>Medium</h3>
+            <p class="price">$1,200</p>
+            <p class="detail">500 cubes</p>
+            <a class="button" href="#order" data-size="Medium (500 cubes, $1,200)">Start with Medium</a>
+          </article>
+          <article class="price-card">
+            <h3>Large</h3>
+            <p class="price">$2,000</p>
+            <p class="detail">1,000 cubes</p>
+            <p class="statement">Statement piece</p>
+            <a class="button" href="#order" data-size="Large (1,000 cubes, $2,000)">Start with Large</a>
           </article>
         </div>
         <div class="price-notes">
+          <p>Each cube is 3 cm. A 1,000-cube piece is about 120 × 75 cm (47 × 30 in); exact size depends on your image's shape.</p>
+          <p>Up to 5 mockups before I build.</p>
           <p>50% deposit after you pick a mockup.</p>
-          <p>Business logo pieces from $2,500.</p>
-          <!-- Fill in a real date only when you mean it. This is not a countdown. -->
-          <p>Order by [date] for [holiday].</p>
+          <p>About 4 weeks.</p>
+          <p>Custom sizes available, just ask.</p>
         </div>
       </div>
     </section>
@@ -268,7 +271,7 @@
           </details>
           <details>
             <summary>What sizes are there?</summary>
-            <p>Mini, Signature (about 500 cubes), and Showpiece. [Exact sizes coming soon.]</p>
+            <p>Small is 300 cubes, Medium is 500 cubes, and Large is 1,000 cubes. Each cube is 3 cm. A 1,000-cube piece is about 120 × 75 cm (47 × 30 in); exact size depends on your image's shape. Custom sizes available, just ask.</p>
           </details>
           <details>
             <summary>Do you make logos for businesses?</summary>
@@ -311,11 +314,10 @@
               <div class="field">
                 <label for="size">Size</label>
                 <select id="size" name="size">
-                  <option>Mini ($1,200)</option>
-                  <option selected>Signature ($2,000)</option>
-                  <option>Showpiece (from $3,200)</option>
-                  <option>Business logo (from $2,500)</option>
-                  <option>Not sure yet</option>
+                  <option>Small (300 cubes, $800)</option>
+                  <option>Medium (500 cubes, $1,200)</option>
+                  <option>Large (1,000 cubes, $2,000)</option>
+                  <option>Custom / not sure</option>
                 </select>
               </div>
               <div class="field">
@@ -415,7 +417,7 @@
         if (e.target === dialog || e.target.classList.contains("lightbox-close")) dialog.close();
       });
       dialog.addEventListener("close", function () { if (opener) opener.focus(); });
-      /* data-size must match the Size menu exactly, for example Mini ($1,200). */
+      /* data-size must match the Size menu exactly, for example Small (300 cubes, $800). */
       document.querySelectorAll("[data-size]").forEach(function (link) {
         link.addEventListener("click", function () {
           document.querySelector("#size").value = link.getAttribute("data-size");
